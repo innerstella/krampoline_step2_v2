@@ -1,12 +1,28 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: frontend
+# spec:
+#   ports:
+#     - port: 3000
+#       targetPort: 3000
+#   selector:
+#     app: frontend
+#   image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ef0b4fc9088f
+#   imagePullPolicy: Always
+
+apiVersion: apps/v1
+kind: Deployment
 spec:
-  ports:
-    - port: 3000
-      targetPort: 3000
-  selector:
-    app: frontend
-  image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ef0b4fc9088f
-  imagePullPolicy: Always
+    template:
+        metadata:
+            labels:
+                app: frontend
+        spec:
+            containers:
+                - name: frontend
+                  # 여러분의 image 주소를 입력해주세요.
+                  image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ef0b4fc9088f
+                  imagePullPolicy: Always
+                  ports:
+                      - containerPort: 3000
