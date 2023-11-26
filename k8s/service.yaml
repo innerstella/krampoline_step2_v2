@@ -8,3 +8,5 @@ spec:
       targetPort: 3000
   selector:
     app: frontend
+  image: nixry-hivqxraftv.krampoline.com
+  imagePullPolicy: Always
